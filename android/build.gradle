@@ -5,6 +5,23 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

@@ -46,4 +46,7 @@ dependencies {
 
     implementation "com.facebook.react:react-native:+" // From node_modules
     implementation "org.webkit:android-jsc:+"
+    implementation project(':react-native-gesture-handler')
+
+
 }

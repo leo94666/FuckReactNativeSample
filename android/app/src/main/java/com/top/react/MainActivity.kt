@@ -1,5 +1,6 @@
 package com.top.react
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -7,17 +8,14 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
+import com.facebook.react.*
 import com.facebook.react.BuildConfig
-import com.facebook.react.ReactInstanceManager
-import com.facebook.react.ReactPackage
-import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
 
 
-class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
+class MainActivity : Activity() ,DefaultHardwareBackBtnHandler{
 
     private var mReactRootView: ReactRootView? = null
     private var mReactInstanceManager: ReactInstanceManager? = null
@@ -42,7 +40,7 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
         SoLoader.init(this, false)
 
         mReactRootView = ReactRootView(this)
-        val packages: List<ReactPackage> = PackageList(application).getPackages()
+        val packages: List<ReactPackage> = PackageList(application).packages
 
         // 有一些第三方可能不能自动链接，对于这些包我们可以用下面的方式手动添加进来：
         // packages.add(new MyReactNativePackage());
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
         mReactInstanceManager = ReactInstanceManager.builder()
             .setApplication(application)
             .setCurrentActivity(this)
-            .setBundleAssetName("index.android.bundle")
+            .setBundleAssetName("index.android6.bundle4")
             .setJSMainModulePath("index")
             .addPackages(packages)
             .setUseDeveloperSupport(BuildConfig.DEBUG)
@@ -58,8 +56,7 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
             .build()
         // 注意这里的MyReactNativeApp 必须对应"index.js"中的
         // "AppRegistry.registerComponent()"的第一个参数
-        // 注意这里的MyReactNativeApp 必须对应"index.js"中的
-        // "AppRegistry.registerComponent()"的第一个参数
+
         mReactRootView?.startReactApplication(mReactInstanceManager, "FuckReactNativeSample", null)
 
         setContentView(mReactRootView)

@@ -10,11 +10,13 @@ class HelloWorld extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World</Text>
+        <Text style={styles.hello}>Hello, Worlddddddd</Text>
       </View>
     );
   }
 }
+
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,6 +30,6 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent(
-  'MyReactNativeApp',
+  'FuckReactNativeSample',
   () => HelloWorld
 );
