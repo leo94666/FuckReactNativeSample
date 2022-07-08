@@ -1,35 +1,11 @@
-import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { Navigation } from 'react-native-navigation'
 
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello, Worlddddddd</Text>
-      </View>
-    );
-  }
-}
+import { AppRegistry } from 'react-native';
 
+import {SplashScreenRoot} from './src/navigation//index'
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  }
-});
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot(SplashScreenRoot)
+})
 
-AppRegistry.registerComponent(
-  'FuckReactNativeSample',
-  () => HelloWorld
-);
+//AppRegistry.registerComponent("FuckReactNativeSample", () => App);

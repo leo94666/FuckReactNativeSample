@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.*
 import com.facebook.react.BuildConfig
 import com.facebook.react.common.LifecycleState
@@ -15,7 +16,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
 
 
-class MainActivity : Activity() ,DefaultHardwareBackBtnHandler{
+class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
 
     private var mReactRootView: ReactRootView? = null
     private var mReactInstanceManager: ReactInstanceManager? = null
@@ -48,7 +49,7 @@ class MainActivity : Activity() ,DefaultHardwareBackBtnHandler{
         mReactInstanceManager = ReactInstanceManager.builder()
             .setApplication(application)
             .setCurrentActivity(this)
-            .setBundleAssetName("index.android6.bundle4")
+            .setBundleAssetName("index.android.bundle")
             .setJSMainModulePath("index")
             .addPackages(packages)
             .setUseDeveloperSupport(BuildConfig.DEBUG)
