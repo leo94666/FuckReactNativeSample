@@ -14,6 +14,7 @@ import com.facebook.react.BuildConfig
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
+import com.reactnativenavigation.NavigationActivity;
 
 
 class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
         // 注意这里的MyReactNativeApp 必须对应"index.js"中的
         // "AppRegistry.registerComponent()"的第一个参数
 
-        mReactRootView?.startReactApplication(mReactInstanceManager, "FuckReactNativeSample", null)
+        mReactRootView?.startReactApplication(mReactInstanceManager, "SplashScreen", null)
 
         setContentView(mReactRootView)
 
