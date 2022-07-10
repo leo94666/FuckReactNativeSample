@@ -6,17 +6,10 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.shell.MainReactPackage
-import com.facebook.soloader.SoLoader
 import com.swmansion.gesturehandler.RNGestureHandlerPackage
 
 
 class App : Application(), ReactApplication {
-
-    override fun onCreate() {
-        super.onCreate()
-        SoLoader.init(this, false)
-
-    }
 
 
     private var mReactNativeHost: ReactNativeHost = object : ReactNativeHost(this) {
@@ -25,9 +18,15 @@ class App : Application(), ReactApplication {
         }
 
         override fun getPackages(): MutableList<ReactPackage> {
-            return mutableListOf(MainReactPackage(), RNGestureHandlerPackage())
+            return mutableListOf(
+                MainReactPackage(),
+                RNGestureHandlerPackage()
+            )
         }
 
+        override fun getJSMainModuleName(): String {
+            return super.getJSMainModuleName()
+        }
 
     }
 

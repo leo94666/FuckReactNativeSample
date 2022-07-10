@@ -1,11 +1,8 @@
-import { Navigation } from 'react-native-navigation'
 
-import { AppRegistry } from 'react-native';
+import { AppRegistry ,PureComponent} from "react-native";
 
-import {SplashScreenRoot} from './src/navigation//index'
+//import {SplashScreenRoot} from './src/navigation//index'
 
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot(SplashScreenRoot)
-})
+import App from "./App";
 
-//AppRegistry.registerComponent("FuckReactNativeSample", () => App);
+AppRegistry.registerComponent("FuckReactNativeSample", () => App);

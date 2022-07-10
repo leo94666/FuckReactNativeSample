@@ -1,12 +1,12 @@
 package com.top.react
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
+import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.*
@@ -14,10 +14,9 @@ import com.facebook.react.BuildConfig
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
-import com.reactnativenavigation.NavigationActivity;
 
 
-class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
+class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private var mReactRootView: ReactRootView? = null
     private var mReactInstanceManager: ReactInstanceManager? = null
@@ -29,6 +28,18 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val layoutParams = WindowManager.LayoutParams()
+            layoutParams.layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            window.attributes = layoutParams
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
                 val intent = Intent(
@@ -59,7 +70,7 @@ class MainActivity : AppCompatActivity() ,DefaultHardwareBackBtnHandler{
         // 注意这里的MyReactNativeApp 必须对应"index.js"中的
         // "AppRegistry.registerComponent()"的第一个参数
 
-        mReactRootView?.startReactApplication(mReactInstanceManager, "SplashScreen", null)
+        mReactRootView?.startReactApplication(mReactInstanceManager, "FuckReactNativeSample", null)
 
         setContentView(mReactRootView)
 
